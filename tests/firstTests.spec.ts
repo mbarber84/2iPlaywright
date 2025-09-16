@@ -9,7 +9,7 @@ test("My first test", async ({ page }) => {
 
 });
 
-test('test', async ({ page }) => {
+test('test2', async ({ page }) => {
   await page.goto('https://www.edgewordstraining.co.uk/demo-site/'); // navigates to demo-site
   await page.locator('#menu-item-46').getByRole('link', { name: 'My account' }).click(); //finds and clicks My Account link in menu
   await page.getByRole('textbox', { name: 'Username or email address *' }).click(); //finds username field and clicks it
