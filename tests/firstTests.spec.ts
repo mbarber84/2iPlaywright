@@ -24,3 +24,12 @@ test('test2', async ({ page }) => {
   await page.locator('#menu-item-46').getByRole('link', { name: 'My account' }).click(); //finds and clicks My Account link in menu
   await page.getByRole('link', { name: ' Logout' }).click(); //finds and clicks Logout link
 });
+
+test('all products', async ({ page }) => {
+  await page.goto('https://www.edgewordstraining.co.uk/demo-site/');
+  const newProducts = page.getByLabel('Recent Products');
+  for (const prod of await newProducts.locator('h2:not(.section-title)').all()) { //gathers a collection of all() matching elements
+    console.log(await prod.textContent()); //then loops over each individual match logging the text
+  }; //No need to await console, but you do need to await the locator. Or you will only get the "promise" of the text, not the actual text.
+ 
+});
